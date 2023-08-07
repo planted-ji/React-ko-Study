@@ -1,18 +1,13 @@
+const products = [
+  { title: "Cabbage", id: 1 },
+  { title: "Garlic", id: 2 },
+  { title: "Apple", id: 3 },
+];
+
 export default function Profile(user) {
-  if (user.name)
-    return (
-      <>
-        <h1>{user.name}</h1>
-        <img
-          className="avatar"
-          src={user.imageUrl}
-          alt={"Photo of " + user.name}
-          style={{
-            width: user.imageSize,
-            height: user.imageSize,
-          }}
-        />
-      </>
-    );
-  return <div>not found name</div>;
+  const listItems = products.map((products) => (
+    <li key={products.id}>{products.title}</li>
+  ));
+
+  return <ul>{listItems}</ul>;
 }
